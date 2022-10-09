@@ -33,19 +33,13 @@ output "transit_gateway_route_tables" {
       egress = { ... }
       ...
     }
-    spoke_vpcs = {
-      segment1 = { ... }
-      segment2 = { ... }
-      ...
-    }
-  }  
+  }
   ```
   Check the AWS Transit Gateway Route Table resource in the Terraform Registry - [aws_ec2_transit_gateway_route_table](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway_route_table) for more information about the output attributes.
   ```
 EOF
   value = {
     central_vpcs = aws_ec2_transit_gateway_route_table.tgw_route_table
-    spoke_vpcs   = local.spoke_vpc_information ? { for k, v in module.spoke_vpcs : k => v.transit_gateway_spoke_rt } : null
   }
 }
 

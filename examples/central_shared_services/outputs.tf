@@ -10,5 +10,5 @@ output "transit_gateway_id" {
 
 output "central_vpcs" {
   description = "Central VPCs created."
-  value       = { for k, v in module.hub-and-spoke.central_vpcs : k => v.vpc_attributes.id }
+  value       = { for k, v in module.network-hub.central_vpcs : k => v.vpc_attributes.id }
 }

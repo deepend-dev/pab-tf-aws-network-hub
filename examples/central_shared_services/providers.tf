@@ -23,7 +23,7 @@ provider "aws" {
 
   default_tags {
     tags = {
-      Module    = "hub-and-spoke-tgw"
+      Module    = "network-hub-tgw"
       Terraform = "Managed"
       Region    = var.aws_region
     }

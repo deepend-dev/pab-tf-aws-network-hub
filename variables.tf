@@ -235,16 +235,3 @@ EOF
     error_message = "Invalid input in var.network_definition.type, options: \"CIDR\", or \"PREFIX_LIST\"."
   }
 }
-
-# Spoke VPCs
-variable "spoke_vpcs" {
-  description = <<-EOF
-  Variable is used to provide the Hub and Spoke module the neccessary information about the Spoke VPCs created. Within this variable, a map of routing domains is expected. The *key* of each map will defined that specific routing domain (e.g. prod, nonprod, etc.) and a Transit Gateway Route Table for that routing domain will be created. Inside each routing domain definition, you can define a map of VPCs with the following attributes:
-    - `vpc_id` = (Optional|string) VPC ID. *This value is not used in this version of the module, we keep it as placehoder when adding support for centralized VPC endpoints*.
-    - `transit_gateway_attachment_id` = (Optional|string) Transit Gateway VPC attachment ID.
-  To get more information of the format of the variables, check the section "Spoke VPCs" in the README.
-  ```
-EOF
-  type        = any
-  default     = {}
-}

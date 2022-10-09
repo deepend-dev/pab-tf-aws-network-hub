@@ -5,15 +5,15 @@
 
 output "transit_gateway_id" {
   description = "ID of the AWS Transit Gateway resource."
-  value       = module.hub-and-spoke.transit_gateway.id
+  value       = module.network-hub.transit_gateway.id
 }
 
 output "central_vpcs" {
   description = "Central VPCs created."
-  value       = { for k, v in module.hub-and-spoke.central_vpcs : k => v.vpc_attributes.id }
+  value       = { for k, v in module.network-hub.central_vpcs : k => v.vpc_attributes.id }
 }
 
 output "network_firewall" {
   description = "AWS Network Firewall ID."
-  value       = module.hub-and-spoke.aws_network_firewall.id
+  value       = module.network-hub.aws_network_firewall.id
 }

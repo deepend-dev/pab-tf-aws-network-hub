@@ -4,7 +4,7 @@
 # --- examples/central_inspection/main.tf ---
 
 # Hub and Spoke module - we only centralize the Inspection
-module "hub-and-spoke" {
+module "network-hub" {
   source = "../.."
 
   identifier = var.identifier
