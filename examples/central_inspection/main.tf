@@ -4,8 +4,9 @@
 # --- examples/central_inspection/main.tf ---
 
 # Hub and Spoke module - we only centralize the Inspection
-module "network-hub" {
-  source = "../.."
+module "hub-and-spoke" {
+  source  = "aws-ia/network-hubandspoke"
+  version = "1.0.1"
 
   identifier = var.identifier
   transit_gateway_attributes = {
