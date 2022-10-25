@@ -68,6 +68,18 @@ resource "aws_ec2_transit_gateway_route_table_association" "tgw_route_table_asso
   transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_route_table[each.key].id
 }
 
+/* ------------ Adding transit gateway route table configurations ------------ */
+
+module "tgw_routing_tables" {
+  for_each = toset(var.tgw_routing_tables) # routing_doamin = rtp, rtn, rts
+
+  source             = "./modules/routing_domains/"
+  transit_gateway_id = local.transit_gateway_id
+  identifier         = each.key
+  central_vpcs       = module.central_vpcs
+  tgw_route_table    = aws_ec2_transit_gateway_route_table.tgw_route_table
+}
+
 # Static Route (0.0.0.0/0) from Inspection VPC to Egress VPC if:
 # 1/ Both Inspection VPC and Egress VPC are created, and the traffic inspection is "all" or "north-south".
 resource "aws_ec2_transit_gateway_route" "inspection_to_egress_default_route" {
@@ -140,3 +152,4 @@ data "aws_ec2_managed_prefix_list" "data_network_prefix_list" {
 
   id = var.network_definition.value
 }
+

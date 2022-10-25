@@ -6,7 +6,7 @@
 variable "aws_region" {
   type        = string
   description = "AWS Region - to build the Hub and Spoke."
-  default     = "eu-west-1"
+  default     = "ap-southeast-1"
 }
 
 variable "identifier" {

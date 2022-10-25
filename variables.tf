@@ -235,3 +235,9 @@ EOF
     error_message = "Invalid input in var.network_definition.type, options: \"CIDR\", or \"PREFIX_LIST\"."
   }
 }
+
+variable "tgw_routing_tables" {
+  type        = list(string)
+  description = "List of tgw route table identifiers also commonly known as routing domains."
+  default     = ["production", "non-production", "shared"]
+}

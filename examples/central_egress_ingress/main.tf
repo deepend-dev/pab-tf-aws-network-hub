@@ -17,9 +17,8 @@ resource "aws_ec2_transit_gateway" "tgw" {
 }
 
 # Hub and Spoke module - we only centralize the Egress and Ingress traffic
-module "hub-and-spoke" {
-  source  = "aws-ia/network-hubandspoke"
-  version = "1.0.1"
+module "network-hub" {
+  source = "../.."
 
   identifier         = var.identifier
   transit_gateway_id = aws_ec2_transit_gateway.tgw.id
