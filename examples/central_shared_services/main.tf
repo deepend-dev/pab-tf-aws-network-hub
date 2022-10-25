@@ -17,8 +17,9 @@ resource "aws_ec2_transit_gateway" "tgw" {
 }
 
 # Hub and Spoke module - we only centralize the Shared Services and Hybrid DNS VPCs
-module "network-hub" {
-  source = "../.."
+module "hub-and-spoke" {
+  source  = "aws-ia/network-hubandspoke"
+  version = "1.0.1"
 
   identifier         = var.identifier
   transit_gateway_id = aws_ec2_transit_gateway.tgw.id
