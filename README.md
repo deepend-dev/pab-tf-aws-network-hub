@@ -1,5 +1,5 @@
 <!-- BEGIN_TF_DOCS -->
-# AWS Hub and Spoke Architecture with AWS Transit Gateway - Terraform Module
+# AWS Hub and Spoke Architecture with AWS Transit Gateway - Terraform Module - TEST
 
 [AWS Transit Gateway](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html) is a network hub that you can use to interconnect your VPCs and on-premises networks. With it, you can create hub and spoke architectures to control how your VPCs and on-prem resources communicate between them. In addition, you can centralize different services - like traffic inspection or the connection to VPC endpoints - and therefore avoid extra costs by overprovisioning those services.
 
